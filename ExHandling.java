@@ -13,6 +13,7 @@ public class ExHandling{
             System.out.print("Input: ");
             n = scan.nextInt();
             System.out.println("Result: " + n);
+            scan.close();
         }catch(InputMismatchException e){
             System.out.println("Error: Input must be Integer");
         }
