@@ -12,14 +12,14 @@ public class Threading {
         };
 
         Train t1 = new Train("EMU", 10000);
-        System.out.println(t1.getState());
+        //System.out.println(t1.getState());
         t1.start();
-        System.out.println(t1.getState());
+        //System.out.println(t1.getState());
         for(Train trn : trains){
             trn.start();
         }
         System.out.println("\n All traines departed... \n");
-        System.out.println(t1.getState());
+        //System.out.println(t1.getState());
     }   
 }
 
@@ -30,9 +30,10 @@ class Train extends Thread{
 
     @Override
     public void run() {
-        for(long start = 0; start < this.routeLength * 9999;){
-            start = start + 1;
-            System.out.print("");
+        try{
+            Thread.sleep(this.routeLength * 10);
+        }catch(Exception e){
+            System.out.println(e);
         }
         System.out.println(this.name + ": reached destination and travelled: " + this.routeLength + "kms");
     }
