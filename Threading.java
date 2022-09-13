@@ -11,10 +11,15 @@ public class Threading {
             new Train("Gareeb Rath", 3200)
         };
 
+        Train t1 = new Train("EMU", 10000);
+        System.out.println(t1.getState());
+        t1.start();
+        System.out.println(t1.getState());
         for(Train trn : trains){
             trn.start();
         }
         System.out.println("\n All traines departed... \n");
+        System.out.println(t1.getState());
     }   
 }
 
