@@ -12,24 +12,28 @@ public class MapandSetandLinkedList {
             information.put(rollNo, new Student(rollNo, studentNames[rollNo - 101], rollNo - 100, 'A', (int) (Math.random() * 100)));
         }
         System.out.println("Roll numbers of students: " + students);
+        System.out.println("\n*** Students ***");
         LinkedList<Student> list = new LinkedList<>();
         students.forEach((student) -> {
             list.add(information.get(student));
-            //(information.get(student)).knowStudent();
+            (information.get(student)).knowStudent();
         });
         Collections.sort(list);
+        System.out.println("\n*** Toppers ***");
+        int rank = 1;
         for(Student stu : list){
-            stu.knowStudent();
+            System.out.println("Rank " + rank + ": " + stu.knowName());
+            rank++;
         }
     }
 }
 
 class Student implements Comparable<Student>{
-    int enrollNo;
-    String name;
-    int standard;
-    char section;
-    int marks;
+    private int enrollNo;
+    private String name;
+    private int standard;
+    private char section;
+    private int marks;
     Student(int r, String n, int s, char se, int m){
         this.enrollNo = r;
         this.name = n;
@@ -39,6 +43,9 @@ class Student implements Comparable<Student>{
     }
     void knowStudent(){
         System.out.println(this.name + " have roll number: " + enrollNo + ", student of class: " + standard + ", section: " + section + ", secured: " + marks + " marks out of 100");
+    }
+    String knowName(){
+        return this.name;
     }
     @Override
     public int compareTo(Student o) {
